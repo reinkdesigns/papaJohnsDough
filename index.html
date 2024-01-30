@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Box Table</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- input buttons for added functionality if needed to ass more PNS days -->
+      <!-- <div class="radio-container">
+        <label>
+          3 Day
+          <br />
+          <input type="radio" id="3dayRadio" name="numberOfDays" value="3" checked />
+        </label>
+        <label>
+          7 Day
+          <br />
+          <input type="radio" name="numberOfDays" value="7" />
+        </label>
+
+        <label>
+          14 Day
+          <br />
+          <input type="radio" name="numberOfDays" value="14" />
+        </label>
+
+        <label>
+          21 Day
+          <br />
+          <input type="radio" name="numberOfDays" value="21" />
+        </label>
+      </div> -->
+
+      <table class="PNSTable"></table>
+
+      <br />
+
+      <table>
+        <thead>
+          <tr class="PNSHead">
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="PNSValues">
+            <td>PNS</td>
+          </tr>
+          <!-- Inserted empty row for visual break -->
+          <tr>
+            <th class="PNSLineBreak" colspan="4"></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th>SMALL</th>
+            <th>MEDIUM</th>
+            <th>LARGE</th>
+            <th>EXTRA</th>
+          </tr>
+          <tr>
+            <td>Yeild</td>
+            <td id="yield0" class="resetField" contenteditable="true"></td>
+            <td id="yield1" class="resetField" contenteditable="true"></td>
+            <td id="yield2" class="resetField" contenteditable="true"></td>
+            <td id="yield3" class="resetField" contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>On Hand</td>
+            <td id="hand0" class="resetField" contenteditable="true"></td>
+            <td id="hand1" class="resetField" contenteditable="true"></td>
+            <td id="hand2" class="resetField" contenteditable="true"></td>
+            <td id="hand3" class="resetField" contenteditable="true"></td>
+          </tr>
+
+          <tr>
+            <th colspan="5"></th>
+          </tr>
+        </tbody>
+      </table>
+      <button id="submitButton">Submit</button>
+      <button id="resetButton">Reset</button>
+    </div>
+
+    <table>
+      <tr class="dayRange">
+        <th>Need</th>
+        <th>Day 1</th>
+        <th>Day 2</th>
+        <th>Day 3</th>
+      </tr>
+
+      <tr>
+        <th>SMALL</th>
+        <td id="1Small" class="resetField"></td>
+        <td id="2Small" class="resetField"></td>
+        <td id="3Small" class="resetField"></td>
+      </tr>
+      <tr>
+        <th>MEDIUM</th>
+        <td id="1Medium" class="resetField"></td>
+        <td id="2Medium" class="resetField"></td>
+        <td id="3Medium" class="resetField"></td>
+      </tr>
+      <tr>
+        <th>LARGE</th>
+        <td id="1Large" class="resetField"></td>
+        <td id="2Large" class="resetField"></td>
+        <td id="3Large" class="resetField"></td>
+      </tr>
+      <tr>
+        <th>EXTRA</th>
+        <td id="1Extra" class="resetField"></td>
+        <td id="2Extra" class="resetField"></td>
+        <td id="3Extra" class="resetField"></td>
+      </tr>
+    </table>
+
+    <br />
+    <br />
+
+    <table>
+      <tr>
+        <th></th>
+        <th>SMALL</th>
+        <th>MEDIUM</th>
+        <th>LARGE</th>
+        <th>EXTRA</th>
+      </tr>
+      <tr>
+        <td>Variance</td>
+        <td id="smallVar" class="resetField"></td>
+        <td id="mediumVar" class="resetField"></td>
+        <td id="largeVar" class="resetField"></td>
+        <td id="extraVar" class="resetField"></td>
+      </tr>
+    </table>
+  </body>
+</html>

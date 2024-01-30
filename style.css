@@ -1,0 +1,62 @@
+.radio-container {
+  display: flex;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  max-width: 200px; /* Adjust the value as needed */
+  padding-left: 100px;
+}
+
+  label {
+    text-align: center;
+    flex-grow: 1;
+    margin-right: 25px;
+  }
+
+  input {
+    margin-top: 5px;
+  }
+  
+.container {
+    display: flex;
+    flex-direction: column; 
+    border: 2px solid #000; 
+    width: fit-content;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 10px;
+    padding-bottom: 80px;
+
+  }
+
+  table {
+    border-collapse: collapse;
+    /* width: 25%; */
+  }
+
+  th, td {
+    border: 1px solid #000; /* Black border */
+    padding: 8px;
+    text-align: center;
+    min-width: 60px;
+  }
+
+  th {
+    background-color: #bebebe; /* Light gray background for headers */
+  }
+
+  #submitButton {
+    padding: 10px;
+    margin: 15px;
+    width: 80px;
+    position: absolute; /* Set position to absolute */
+    left: 270px; /* Align to the right within the container */
+    bottom: 10px;
+  }
+
+  #resetButton {
+    padding: 10px;
+    margin: 15px;
+    width: 80px;
+    position: absolute; /* Set position to absolute */
+    bottom: 10px;
+  }
