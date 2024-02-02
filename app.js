@@ -17,7 +17,7 @@ $(document).ready(function() {
       // Add headers based on the selected number of days
       for (var i = 1; i <= numberOfDays; i++) {
         dayHeadersRow.append("<th>Day " + i + "</th>");
-        dayInputRow.append('<td id="PNS'+i+'"class="resetField" contenteditable="true"></td>');
+        dayInputRow.append('<td id="PNS'+i+'"class="resetField" inputmode="numeric" contenteditable="true"></td>');
       }
     }
 
