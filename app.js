@@ -1,5 +1,16 @@
 let PNS=[]
 let numberOfDays = 3
+
+console.log(Math.ceil(-1.2))
+$(document).on('keypress', '.resetField', function(e) {
+  const inputChar = String.fromCharCode(e.which);
+  const isDigitOrDecimal = /^\d*\.?\d*$/.test(inputChar);
+
+  if (!isDigitOrDecimal) {
+    e.preventDefault();
+  }
+});
+
 $(document).ready(function() {
     var numberOfDays = 3;
   
@@ -16,19 +27,12 @@ $(document).ready(function() {
   
       // Add headers based on the selected number of days
       for (var i = 1; i <= numberOfDays; i++) {
-        dayHeadersRow.append("<th>Day " + i + "</th>");
+        dayHeadersRow.append("<th>Day " +i+ "</th>");
         dayInputRow.append('<td id="PNS'+i+'"class="resetField" inputmode="numeric" contenteditable="true"></td>');
       }
     }
 
-    $(".resetField").on("input", function() {
-      var inputText = $(this).text();
-      if (isNaN(inputText)) {
-          // If the input is not a valid number, remove the non-numeric characters
-          //having an issue with this where if user types a letter it moves the cursor to the start of the field
-          $(this).text(inputText.replace(/[^0-9.]/g, ""));
-      }
-  });
+
   
   //code to add adjustable PNS days, impliments but disabled as of now, feature was requested but determined unnessicary
   //as no part of the calculations called for anything beyond the next 3 days of projected sales.
@@ -93,10 +97,11 @@ $(document).ready(function() {
     //adds the 3 day need and compairs to what the store has onhand to establish if we need
     //to get anymore dough from other stores
     //updates variance grid
-  $('#smallVar').html('<b>'+(doughOnHand[0] - traysSmall.reduce(function(a,b){return a+b},0))+'</b>')
-  $('#mediumVar').html('<b>'+(doughOnHand[1] - traysMedium.reduce(function(a,b){return a+b},0))+'</b>')
-  $('#largeVar').html('<b>'+(doughOnHand[2] - traysLarge.reduce(function(a,b){return a+b},0))+'</b>')
-  $('#extraVar').html('<b>'+(doughOnHand[3] - traysExtra.reduce(function(a,b){return a+b},0))+'</b>')
+
+  $('#smallVar').html('<b>'+(calculateVariance(doughOnHand[0], traysSmall))+'</b>')
+  $('#mediumVar').html('<b>'+(calculateVariance(doughOnHand[1], traysMedium))+'</b>')
+  $('#largeVar').html('<b>'+(calculateVariance(doughOnHand[2], traysLarge))+'</b>')
+  $('#extraVar').html('<b>'+(calculateVariance(doughOnHand[3], traysExtra))+'</b>')
 
   //loop to update dough Need grid.
   for(i=0;i<3;i++){
@@ -118,4 +123,12 @@ $(document).ready(function() {
     if(parseInt($('#largeVar').text())>=0){$('#largeVar').css('background-color', 'white');}
     if(parseInt($('#extraVar').text())>=0){$('#extraVar').css('background-color', 'white');}
    
+    }
+
+
+
+    function calculateVariance(avaliable, traysneeded){ // calculate then rounds variance away from 0. you can't order or donate half of a tray so if i need dough i need a full tray, if im giving dough away im giving a full tray
+      var variance = avaliable - traysneeded.reduce(function(a,b){return a+b},0)
+      if(variance>0) return Math.ceil(variance)
+      return Math.floor(variance)
     }
