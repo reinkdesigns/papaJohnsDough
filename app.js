@@ -1,7 +1,6 @@
 let PNS=[]
 let numberOfDays = 3
 
-console.log(Math.ceil(-1.2))
 $(document).on('keypress', '.resetField', function(e) {
   const inputChar = String.fromCharCode(e.which);
   const isDigitOrDecimal = /^\d*\.?\d*$/.test(inputChar);
@@ -85,7 +84,6 @@ $(document).ready(function() {
 
     //divides out 3 day projected net sales aginst our store yield(average usage for the past 21 days)
     for(i=1;i<=numberOfDays;i++){
-        console.log("i is"+i)
         traysSmall.push(Math.ceil(PNS[i] / doughYeild[0])) 
         traysMedium.push(Math.ceil(PNS[i] / doughYeild[1]))
         traysLarge.push(Math.ceil(PNS[i] / doughYeild[2]))
