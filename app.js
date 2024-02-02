@@ -79,7 +79,7 @@ $(document).ready(function() {
         doughOnHand.push($('#hand'+i).html())
     }
 
-    //divides out 3 day projected net sales aginst our store yeild(average usage for the past 21 days)
+    //divides out 3 day projected net sales aginst our store yield(average usage for the past 21 days)
     for(i=1;i<=numberOfDays;i++){
         console.log("i is"+i)
         traysSmall.push(Math.ceil(PNS[i] / doughYeild[0])) 
